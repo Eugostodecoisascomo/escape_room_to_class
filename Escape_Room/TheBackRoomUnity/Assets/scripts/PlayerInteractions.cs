@@ -11,6 +11,7 @@ public class PlayerInteractions : MonoBehaviour
     public float rayDistance = 4f;
     private Camera myCamera;
 
+
     //Input managers
     private PlayerInput playerInput;
     private InputAction moveAction;
@@ -147,11 +148,11 @@ public class PlayerInteractions : MonoBehaviour
                 UIManager.instance.SetHandCursor(false);
             }
         }
-         else if (canFinish && !Physics.Raycast(rayOrigin, myCamera.transform.forward, out hit, rayDistance))
+        /*else if (canFinish && !Physics.Raycast(rayOrigin, myCamera.transform.forward, out hit, rayDistance))
         {
             FinishView();
             crk= 0f;
-        }
+        }*/
         else if(ck != 0)
         {
             ck = 0f;
@@ -163,9 +164,9 @@ public class PlayerInteractions : MonoBehaviour
 
         if(isViewing)
         {
-            if(currentInteractable.item.grabbable && ck != 0)
+            if(currentInteractable.item.grabbable)
             {
-                RotateObject();
+                RotateObject(currentInteractable, objectViewer.position);
             }
             return;
         }
@@ -209,11 +210,11 @@ public class PlayerInteractions : MonoBehaviour
             currentInteractable.CollectItem.Invoke();
         }
 
-        /*if (currentItem.grabbable)
+        if (currentItem.grabbable)
         {
             currentInteractable.transform.rotation = originAngle;
             StartCoroutine(MovingObject(currentInteractable, originPosition));
-        }*/
+        }
         OnFinish.Invoke();
     }
 
@@ -227,16 +228,16 @@ public class PlayerInteractions : MonoBehaviour
             timer = Time.deltaTime;
             yield return null;
         }
-        obj.transform.position = position;
         obj.isMoving = false;
     }
 
-    public void RotateObject()
+    public void RotateObject(InteractableObject obj, Vector3 viwer)
     {
-        float mx = x * mouseSensibility * Time.deltaTime;
+        /*float mx = x * mouseSensibility * Time.deltaTime;
         float my = y * mouseSensibility * Time.deltaTime;
         currentInteractable.transform.Rotate(myCamera.transform.right, -Mathf.Deg2Rad * y * rotateSpeed, Space.World);
-        currentInteractable.transform.Rotate(myCamera.transform.up, -Mathf.Deg2Rad * x * rotateSpeed, Space.World);
+        currentInteractable.transform.Rotate(myCamera.transform.up, -Mathf.Deg2Rad * x * rotateSpeed, Space.World);*/
+        obj.transform.position = objectViewer.transform.position;
     }
     
     public void OnMoveEvent(InputAction.CallbackContext value)
