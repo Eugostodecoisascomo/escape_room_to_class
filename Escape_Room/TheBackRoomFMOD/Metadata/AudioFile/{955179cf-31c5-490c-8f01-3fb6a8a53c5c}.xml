@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{955179cf-31c5-490c-8f01-3fb6a8a53c5c}">
+		<property name="assetPath">
+			<value>lâminaRuindo.flac</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.57781249999999995</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{177bd5c5-9df2-4ac2-8ab4-c7a056222657}</destination>
+		</relationship>
+	</object>
+</objects>
