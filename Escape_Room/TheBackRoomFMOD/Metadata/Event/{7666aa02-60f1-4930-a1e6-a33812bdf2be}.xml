@@ -8,7 +8,7 @@
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{ba540cb0-c5f6-48b9-be41-ba5c357a3da6}</destination>
+			<destination>{53eebac4-86de-41a1-a2a0-234b1a3074d9}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{535b168f-940b-47dd-86e2-9d75750fb1a5}</destination>
@@ -73,11 +73,13 @@
 	<object class="MixerBusEffectChain" id="{484513c8-2e36-4e29-a44e-f76cf586bf73}">
 		<relationship name="effects">
 			<destination>{ce90844d-bbe4-47a3-bd82-ba02508db022}</destination>
+			<destination>{93ec0aa4-1dc8-4d9b-aa6d-98e40f39bf04}</destination>
 			<destination>{e8d14807-af21-494e-9c58-acfc8bee73d8}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4b707ee7-5f4b-4a08-a499-c3bb3bdf28d6}" />
 	<object class="MixerBusFader" id="{91b8220d-9808-405c-8ca8-7bbb74ef396e}" />
 	<object class="MixerBusFader" id="{ce90844d-bbe4-47a3-bd82-ba02508db022}" />
+	<object class="SpatialiserEffect" id="{93ec0aa4-1dc8-4d9b-aa6d-98e40f39bf04}" />
 	<object class="SpatialiserEffect" id="{e8d14807-af21-494e-9c58-acfc8bee73d8}" />
 </objects>
