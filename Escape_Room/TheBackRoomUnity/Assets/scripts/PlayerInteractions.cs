@@ -26,6 +26,7 @@ public class PlayerInteractions : MonoBehaviour
     float mouseSensibility = 100f;
     public float rotateSpeed = 200f;
     public Transform objectViewer;
+    public Transform camera;
 
     //events managers
     private bool isViewing;
@@ -128,7 +129,7 @@ public class PlayerInteractions : MonoBehaviour
                     {
                         originPosition = currentInteractable.transform.position;
                         originAngle = currentInteractable.transform.rotation;
-                        StartCoroutine(MovingObject(currentInteractable, objectViewer.position));
+                        StartCoroutine(MovingObject(currentInteractable, objectViewer.position, currentInteractable.rBody));
                     }
 
                     if(currentInteractable.item.endTheGame == true)
@@ -148,11 +149,11 @@ public class PlayerInteractions : MonoBehaviour
                 UIManager.instance.SetHandCursor(false);
             }
         }
-        /*else if (canFinish && !Physics.Raycast(rayOrigin, myCamera.transform.forward, out hit, rayDistance))
+        else if (canFinish && crk !=0)
         {
             FinishView();
             crk= 0f;
-        }*/
+        }
         else if(ck != 0)
         {
             ck = 0f;
@@ -183,7 +184,7 @@ public class PlayerInteractions : MonoBehaviour
         
         UIManager.instance.SetCaptions(itemFake.text);
 
-        Invoke("CanFinish", 3.5f);
+        Invoke("CanFinish", 0.1f);
     }
 
     void CanFinish()
@@ -212,22 +213,25 @@ public class PlayerInteractions : MonoBehaviour
 
         if (currentItem.grabbable)
         {
-            currentInteractable.transform.rotation = originAngle;
-            StartCoroutine(MovingObject(currentInteractable, originPosition));
+            currentInteractable.transform.rotation = objectViewer.transform.rotation;
+            StartCoroutine(MovingObject(currentInteractable, objectViewer.transform.position, currentInteractable.rBody));
         }
         OnFinish.Invoke();
     }
 
-    IEnumerator MovingObject (InteractableObject obj , Vector3 position)
+    IEnumerator MovingObject (InteractableObject obj , Vector3 position, Rigidbody nrb)
     {
         obj.isMoving = true;
-        float timer = 0f;
+        /*float timer = 0f;
         while (timer < 1)
         {
             obj.transform.position = Vector3.Lerp(obj.transform.position , position , Time.deltaTime * 5);
             timer = Time.deltaTime;
-            yield return null;
-        }
+        }*/
+        
+        nrb.AddForce(transform.up*4, ForceMode.Impulse);
+        nrb.AddForce(transform.forward*4, ForceMode.Impulse);
+        yield return null;
         obj.isMoving = false;
     }
 
@@ -238,6 +242,7 @@ public class PlayerInteractions : MonoBehaviour
         currentInteractable.transform.Rotate(myCamera.transform.right, -Mathf.Deg2Rad * y * rotateSpeed, Space.World);
         currentInteractable.transform.Rotate(myCamera.transform.up, -Mathf.Deg2Rad * x * rotateSpeed, Space.World);*/
         obj.transform.position = objectViewer.transform.position;
+        obj.transform.rotation = objectViewer.transform.rotation;
     }
     
     public void OnMoveEvent(InputAction.CallbackContext value)
