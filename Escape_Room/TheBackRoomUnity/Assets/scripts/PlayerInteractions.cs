@@ -127,8 +127,8 @@ public class PlayerInteractions : MonoBehaviour
                     
                     if (currentInteractable.item.grabbable)
                     {
-                        originPosition = currentInteractable.transform.position;
-                        originAngle = currentInteractable.transform.rotation;
+                        /*originPosition = currentInteractable.transform.position;
+                        originAngle = currentInteractable.transform.rotation;*/
                         StartCoroutine(MovingObject(currentInteractable, objectViewer.position, currentInteractable.rBody));
                     }
 
@@ -222,6 +222,8 @@ public class PlayerInteractions : MonoBehaviour
     IEnumerator MovingObject (InteractableObject obj , Vector3 position, Rigidbody nrb)
     {
         obj.isMoving = true;
+        obj.transform.position = objectViewer.transform.position;
+        obj.transform.rotation = objectViewer.transform.rotation;
         /*float timer = 0f;
         while (timer < 1)
         {
@@ -229,8 +231,8 @@ public class PlayerInteractions : MonoBehaviour
             timer = Time.deltaTime;
         }*/
         
-        nrb.AddForce(transform.up*4, ForceMode.Impulse);
-        nrb.AddForce(transform.forward*4, ForceMode.Impulse);
+        nrb.AddForce(obj.transform.up*10, ForceMode.Impulse);
+        nrb.AddForce(obj.transform.forward*4, ForceMode.Impulse);
         yield return null;
         obj.isMoving = false;
     }
