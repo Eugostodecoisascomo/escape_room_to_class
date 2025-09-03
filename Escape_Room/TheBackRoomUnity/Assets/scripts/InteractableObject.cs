@@ -16,6 +16,7 @@ public class InteractableObject : MonoBehaviour
     [HideInInspector]
     public bool isMoving;
     public Item item;
+    [SerializeField] public Rigidbody rBody;
     public UnityEvent OnInteract;
     public UnityEvent CollectItem;
 
