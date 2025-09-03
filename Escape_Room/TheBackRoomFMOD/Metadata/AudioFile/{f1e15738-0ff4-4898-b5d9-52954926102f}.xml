@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{f1e15738-0ff4-4898-b5d9-52954926102f}">
+		<property name="assetPath">
+			<value>touchDigital.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.9890833333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{177bd5c5-9df2-4ac2-8ab4-c7a056222657}</destination>
+		</relationship>
+	</object>
+</objects>

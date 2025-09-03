@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{e7666d9d-efc7-42cd-9dc7-70c4453fc403}">
+		<property name="assetPath">
+			<value>senhaErrada.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.27315192743764172</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{177bd5c5-9df2-4ac2-8ab4-c7a056222657}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{b99ddf31-8b61-412f-9540-61e3d20bc034}">
+		<property name="assetPath">
+			<value>trancandoPorta.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>11</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{177bd5c5-9df2-4ac2-8ab4-c7a056222657}</destination>
+		</relationship>
+	</object>
+</objects>

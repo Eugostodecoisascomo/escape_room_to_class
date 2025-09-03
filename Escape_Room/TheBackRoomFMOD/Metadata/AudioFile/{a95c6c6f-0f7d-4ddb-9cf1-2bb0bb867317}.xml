@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{a95c6c6f-0f7d-4ddb-9cf1-2bb0bb867317}">
+		<property name="assetPath">
+			<value>abrindoCofrePorta.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>88.1999969</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.8482199546485258</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{177bd5c5-9df2-4ac2-8ab4-c7a056222657}</destination>
+		</relationship>
+	</object>
+</objects>
