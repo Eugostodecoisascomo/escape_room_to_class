@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{e726a20e-a0e7-4a25-b5ed-143fc2ccc10b}">
+		<property name="assetPath">
+			<value>abrirMochila.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.69599999999999995</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{177bd5c5-9df2-4ac2-8ab4-c7a056222657}</destination>
+		</relationship>
+	</object>
+</objects>

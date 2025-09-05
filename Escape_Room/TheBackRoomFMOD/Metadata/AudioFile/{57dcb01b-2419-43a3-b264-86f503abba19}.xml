@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.03.00">
-	<object class="AudioFile" id="{f4d1d5f5-132a-468b-81a8-fad93c131466}">
+	<object class="AudioFile" id="{57dcb01b-2419-43a3-b264-86f503abba19}">
 		<property name="assetPath">
-			<value>vidroQuebrando.wav</value>
+			<value>botãoElevador.aiff</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>2.0924791666666667</value>
+			<value>0.89427083333333335</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{177bd5c5-9df2-4ac2-8ab4-c7a056222657}</destination>
