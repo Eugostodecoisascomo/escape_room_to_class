@@ -23,7 +23,7 @@ public class PlayerInteractions : MonoBehaviour
     float crk;
 
     //object move managers
-    float mouseSensibility = 100f;
+    //float mouseSensibility = 100f;
     public float rotateSpeed = 200f;
     public Transform objectViewer;
     public Transform camera;
@@ -138,7 +138,7 @@ public class PlayerInteractions : MonoBehaviour
                         SceneManager.LoadScene("Screen");
                     }
 
-                    if()
+                    /*if()*/
                 }
 
                 if (canFinish && crk !=0)
@@ -264,11 +264,11 @@ public class PlayerInteractions : MonoBehaviour
         crk = riclicked.ReadValue<float>();
     }
 
-    void OnCollisionStay(Collision collider)
+    /*void OnCollisionStay(Collision collider)
     {
         if(collider.other.tag == "Corda")
         {
             toInteract.Item.canClimb = true;
         }
-    }
+    }*/
 }
