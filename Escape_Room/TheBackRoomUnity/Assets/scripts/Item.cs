@@ -10,7 +10,8 @@ public class Item : ScriptableObject
     public bool requiredItem;
     public bool grabbable;
     public bool endTheGame;
-    
+    public bool canClimb;
+    public bool isClimbing;
 
     public string text;
 

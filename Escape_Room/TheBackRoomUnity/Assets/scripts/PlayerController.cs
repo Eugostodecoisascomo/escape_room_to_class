@@ -15,11 +15,14 @@ public class PlayerController : MonoBehaviour
     public float gravity = -9.81f;
     public float maxSpeed;
     Vector3 velocity;
+    Vector3 move;
     
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     private bool isGrounded;
+    public bool canClimb = false;
+    bool isClimbing = false;
 
     private PlayerInput playerInput;
     private InputAction moveAction;
@@ -57,14 +60,30 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = -2f;
         }
-        Vector3 move = transform.right * x + transform.forward * z;
+        if(!isClimbing)
+        {
+            move = transform.right * x + transform.forward * z;
+            velocity.y += gravity * Time.deltaTime;
+        }
         controller.Move(move * speed * Time.deltaTime);
 
-        velocity.y += gravity * Time.deltaTime;
+        
 
         controller.Move(velocity * Time.deltaTime);
     }
 
+    void OnCollisionEnter( Collision collider)
+    {
+        if(collider.other.tag == "Corda")
+        {
+            canClimb = true;
+        }
+    }
+
+    void OnCollisionExit( Collision collider)
+    {
+        canClimb = false;
+    }
 
     public void OnMoveEvent(InputAction.CallbackContext value)
     {

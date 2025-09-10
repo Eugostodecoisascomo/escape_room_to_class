@@ -34,12 +34,13 @@ public class PlayerInteractions : MonoBehaviour
     private Vector3 originPosition;
     private Quaternion originAngle;
     public UnityEvent OnView;
-    public UnityEvent OnFinish;
+    public UnityEvent OnFinish; 
     private bool canFinish;
 
     //[SerializeField]private EventReference inventorySound;
 
     private PlayerInventory inventory;
+    private RopeClimbing ropeClimbing;
     private Item currentItem;
 
 
@@ -136,6 +137,8 @@ public class PlayerInteractions : MonoBehaviour
                     {
                         SceneManager.LoadScene("Screen");
                     }
+
+                    if()
                 }
 
                 if (canFinish && crk !=0)
@@ -259,5 +262,13 @@ public class PlayerInteractions : MonoBehaviour
     public void ClickOutEvent(InputAction.CallbackContext riclicked)
     {
         crk = riclicked.ReadValue<float>();
+    }
+
+    void OnCollisionStay(Collision collider)
+    {
+        if(collider.other.tag == "Corda")
+        {
+            toInteract.Item.canClimb = true;
+        }
     }
 }
