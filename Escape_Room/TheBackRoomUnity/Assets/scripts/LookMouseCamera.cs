@@ -13,7 +13,7 @@ public class LookMouseCamera : MonoBehaviour
 
     private float mouseX;
     private float mouseY;
-    public float mouseSensibility = 0.2f;
+    public float mouseSensibility = 0.9f;
     private float Xrotation = 0f;
     public Transform playerBody;
 

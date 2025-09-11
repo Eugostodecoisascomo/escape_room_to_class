@@ -216,7 +216,7 @@ public class PlayerInteractions : MonoBehaviour
 
         if (currentItem.grabbable)
         {
-            currentInteractable.transform.rotation = objectViewer.transform.rotation;
+            //currentInteractable.transform.rotation = objectViewer.transform.rotation;
             StartCoroutine(MovingObject(currentInteractable, objectViewer.transform.position, currentInteractable.rBody));
         }
         OnFinish.Invoke();
@@ -226,7 +226,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         obj.isMoving = true;
         obj.transform.position = objectViewer.transform.position;
-        obj.transform.rotation = objectViewer.transform.rotation;
+        //obj.transform.rotation = objectViewer.transform.rotation;
         /*float timer = 0f;
         while (timer < 1)
         {
@@ -247,7 +247,7 @@ public class PlayerInteractions : MonoBehaviour
         currentInteractable.transform.Rotate(myCamera.transform.right, -Mathf.Deg2Rad * y * rotateSpeed, Space.World);
         currentInteractable.transform.Rotate(myCamera.transform.up, -Mathf.Deg2Rad * x * rotateSpeed, Space.World);*/
         obj.transform.position = objectViewer.transform.position;
-        obj.transform.rotation = objectViewer.transform.rotation;
+        //obj.transform.rotation = objectViewer.transform.rotation;
     }
     
     public void OnMoveEvent(InputAction.CallbackContext value)
