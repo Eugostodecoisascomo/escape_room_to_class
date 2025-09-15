@@ -351,6 +351,7 @@
 "Assets/scripts/InteractableObject.cs"
 "Assets/scripts/Item.cs"
 "Assets/scripts/LookMouseCamera.cs"
+"Assets/scripts/menubuttons.cs"
 "Assets/scripts/PlayerController.cs"
 "Assets/scripts/PlayerInteractions.cs"
 "Assets/scripts/PlayerInventory.cs"
