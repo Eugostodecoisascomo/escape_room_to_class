@@ -9,8 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f1e44ffb62770f4185e58e039868b6a, type: 3}
-  m_Name: GenericRope
+  m_Script: {fileID: 11500000, guid: 7fa707bc850f09f4b8dbdcc1870e4947, type: 3}
+  m_Name: Rope
   m_EditorClassIdentifier: 
+  requiredItem: 0
+  grabbable: 0
+  endTheGame: 0
   canClimb: 0
   isClimbing: 0
+  text: 
+  image: {fileID: 0}
+  canHaveInv: 0
+  collectMessage: 

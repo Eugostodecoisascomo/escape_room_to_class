@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     private bool isGrounded;
-    public bool canClimb = false;
     bool isClimbing = false;
 
     private PlayerInput playerInput;
@@ -60,10 +59,15 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = -2f;
         }
-        if(!isClimbing)
+        if(!PlayerInteractions.isClimbing)
         {
             move = transform.right * x + transform.forward * z;
             velocity.y += gravity * Time.deltaTime;
+        }
+        else
+        {
+            move = transform.up * z * 0.5f;
+            velocity.y = 0;
         }
         controller.Move(move * speed * Time.deltaTime);
 
@@ -72,18 +76,18 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void OnCollisionEnter( Collision collider)
-    {
-        if(collider.other.tag == "Corda")
-        {
-            canClimb = true;
-        }
-    }
+    // void OnCollisionEnter( Collision collider)
+    // {
+    //     if(collider.other.tag == "Corda")
+    //     {
+    //         canClimb = true;
+    //     }
+    // }
 
-    void OnCollisionExit( Collision collider)
-    {
-        canClimb = false;
-    }
+    // void OnCollisionExit( Collision collider)
+    // {
+    //     canClimb = false;
+    // }
 
     public void OnMoveEvent(InputAction.CallbackContext value)
     {

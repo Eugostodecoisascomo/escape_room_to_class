@@ -4364,6 +4364,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1295802806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 872407361080705402, guid: 5d6da4c0d50ddc747b3c9152ae6707fa, type: 3}
+  m_PrefabInstance: {fileID: 872407361015477588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1295802816
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295802806}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.65
+  m_Height: 1.7
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1296330392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1432724507161190285, guid: ddff3b20af97da94b97afcd9eea8adf9, type: 3}
@@ -4730,7 +4749,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -4808,10 +4827,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1425712164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eab289d1ddc0fb47ade9e5c05649185, type: 3}
+  m_Script: {fileID: 11500000, guid: 855bd8acba165224f9992141e8764c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rope: {fileID: 11400000, guid: e65304bcb93a1ab49be76c8ca1457283, type: 2}
+  isMoving: 0
+  item: {fileID: 11400000, guid: ddc9594ce2921fe40b47184f125e651d, type: 2}
+  rBody: {fileID: 0}
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  CollectItem:
+    m_PersistentCalls:
+      m_Calls: []
+  previousItems: []
 --- !u!1 &1436741307 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5397536657037130982, guid: ddff3b20af97da94b97afcd9eea8adf9, type: 3}
@@ -7119,6 +7147,14 @@ PrefabInstance:
     - target: {fileID: 872407361080705376, guid: 5d6da4c0d50ddc747b3c9152ae6707fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 872407361080705381, guid: 5d6da4c0d50ddc747b3c9152ae6707fa, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 872407361080705381, guid: 5d6da4c0d50ddc747b3c9152ae6707fa, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 872407361080705402, guid: 5d6da4c0d50ddc747b3c9152ae6707fa, type: 3}
       propertyPath: m_Name

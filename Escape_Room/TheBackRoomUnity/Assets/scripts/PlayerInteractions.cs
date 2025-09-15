@@ -29,8 +29,10 @@ public class PlayerInteractions : MonoBehaviour
     public Transform camera;
 
     //events managers
+    public static bool isClimbing;
     private bool isViewing;
     private InteractableObject currentInteractable;
+    private InteractableObject toInteract;
     private Vector3 originPosition;
     private Quaternion ovAngle;
     private Quaternion obAngle;
@@ -41,7 +43,6 @@ public class PlayerInteractions : MonoBehaviour
     //[SerializeField]private EventReference inventorySound;
 
     private PlayerInventory inventory;
-    private RopeClimbing ropeClimbing;
     private Item currentItem;
 
 
@@ -88,9 +89,17 @@ public class PlayerInteractions : MonoBehaviour
         RaycastHit hit;
         Vector3 rayOrigin = myCamera.ViewportToWorldPoint(new Vector3 (0.5f , 0.5f , 0.5f));
 
+        if(ck != 0)
+        {
+            if(isClimbing)
+            {
+                isClimbing = false;
+            }
+        }
+
         if(Physics.Raycast(rayOrigin, myCamera.transform.forward, out hit, rayDistance))
         {
-            InteractableObject toInteract = hit.collider.GetComponent<InteractableObject>();
+            toInteract = hit.collider.GetComponent<InteractableObject>();
 
             if (toInteract != null)
             {
@@ -103,7 +112,6 @@ public class PlayerInteractions : MonoBehaviour
                         return;
                     }
                     currentInteractable = toInteract;
-                    
                     if(currentInteractable.item != null)
                     {
                         OnView.Invoke();
@@ -139,8 +147,14 @@ public class PlayerInteractions : MonoBehaviour
                     {
                         SceneManager.LoadScene("Screen");
                     }
+                    if(currentInteractable.item.canClimb)
+                    {
+                        if(!isClimbing)
+                        {
+                            isClimbing = true;
+                        }
+                    }
 
-                    /*if()*/
                 }
 
                 if (canFinish && crk !=0)
@@ -268,11 +282,26 @@ public class PlayerInteractions : MonoBehaviour
         crk = riclicked.ReadValue<float>();
     }
 
-    /*void OnCollisionStay(Collision collider)
+
+    void OnTriggerEnter(Collider other)
     {
-        if(collider.other.tag == "Corda")
+        if(other.tag == "Corda")
         {
-            toInteract.Item.canClimb = true;
+            if(toInteract.item.canClimb != null)
+            {
+                toInteract.item.canClimb = true;
+                currentInteractable = toInteract;
+            }
         }
-    }*/
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Corda")
+        {
+            currentInteractable.item.canClimb = false;
+            isClimbing = false;
+        }
+
+    }
 }
