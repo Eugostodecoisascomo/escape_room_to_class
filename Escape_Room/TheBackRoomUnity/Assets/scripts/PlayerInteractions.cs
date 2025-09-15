@@ -32,9 +32,10 @@ public class PlayerInteractions : MonoBehaviour
     private bool isViewing;
     private InteractableObject currentInteractable;
     private Vector3 originPosition;
-    private Quaternion originAngle;
+    private Quaternion ovAngle;
+    private Quaternion obAngle;
     public UnityEvent OnView;
-    public UnityEvent OnFinish; 
+    public UnityEvent OnFinish;
     private bool canFinish;
 
     //[SerializeField]private EventReference inventorySound;
@@ -82,6 +83,7 @@ public class PlayerInteractions : MonoBehaviour
 
     void CheckInteractions()
     {
+        ovAngle = objectViewer.transform.rotation;
         float bmous = ck;
         RaycastHit hit;
         Vector3 rayOrigin = myCamera.ViewportToWorldPoint(new Vector3 (0.5f , 0.5f , 0.5f));
@@ -128,8 +130,8 @@ public class PlayerInteractions : MonoBehaviour
                     
                     if (currentInteractable.item.grabbable)
                     {
-                        /*originPosition = currentInteractable.transform.position;
-                        originAngle = currentInteractable.transform.rotation;*/
+                        //originPosition = currentInteractable.transform.position;
+                        obAngle = currentInteractable.transform.rotation;
                         StartCoroutine(MovingObject(currentInteractable, objectViewer.position, currentInteractable.rBody));
                     }
 
@@ -226,7 +228,8 @@ public class PlayerInteractions : MonoBehaviour
     {
         obj.isMoving = true;
         obj.transform.position = objectViewer.transform.position;
-        //obj.transform.rotation = objectViewer.transform.rotation;
+        
+        print(ovAngle);
         /*float timer = 0f;
         while (timer < 1)
         {
@@ -248,6 +251,7 @@ public class PlayerInteractions : MonoBehaviour
         currentInteractable.transform.Rotate(myCamera.transform.up, -Mathf.Deg2Rad * x * rotateSpeed, Space.World);*/
         obj.transform.position = objectViewer.transform.position;
         //obj.transform.rotation = objectViewer.transform.rotation;
+        obj.transform.rotation = ovAngle * obAngle;
     }
     
     public void OnMoveEvent(InputAction.CallbackContext value)
