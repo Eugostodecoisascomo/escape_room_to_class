@@ -31,7 +31,8 @@ public class PlayerInteractions : MonoBehaviour
     //events managers
     public static bool isClimbing;
     private bool isViewing;
-    private InteractableObject currentInteractable;
+    public InteractableObject currentInteractable;
+    public InteractableObject currentInteractableCheck;
     private InteractableObject toInteract;
     private Vector3 originPosition;
     private Quaternion ovAngle;
@@ -84,7 +85,7 @@ public class PlayerInteractions : MonoBehaviour
 
     void CheckInteractions()
     {
-        ovAngle = objectViewer.transform.rotation;
+        ovAngle = myCamera.transform.rotation;
         float bmous = ck;
         RaycastHit hit;
         Vector3 rayOrigin = myCamera.ViewportToWorldPoint(new Vector3 (0.5f , 0.5f , 0.5f));
@@ -112,6 +113,7 @@ public class PlayerInteractions : MonoBehaviour
                         return;
                     }
                     currentInteractable = toInteract;
+                    currentInteractableCheck = toInteract;
                     if(currentInteractable.item != null)
                     {
                         OnView.Invoke();
@@ -140,6 +142,7 @@ public class PlayerInteractions : MonoBehaviour
                     {
                         //originPosition = currentInteractable.transform.position;
                         obAngle = currentInteractable.transform.rotation;
+                        //currentInteractable.transform.rotation = obAngle * ovAngle;
                         StartCoroutine(MovingObject(currentInteractable, objectViewer.position, currentInteractable.rBody));
                     }
 
@@ -232,7 +235,7 @@ public class PlayerInteractions : MonoBehaviour
 
         if (currentItem.grabbable)
         {
-            //currentInteractable.transform.rotation = objectViewer.transform.rotation;
+            //currentInteractable.transform.rotation = ovAngle * obAngle;
             StartCoroutine(MovingObject(currentInteractable, objectViewer.transform.position, currentInteractable.rBody));
         }
         OnFinish.Invoke();
@@ -264,8 +267,7 @@ public class PlayerInteractions : MonoBehaviour
         currentInteractable.transform.Rotate(myCamera.transform.right, -Mathf.Deg2Rad * y * rotateSpeed, Space.World);
         currentInteractable.transform.Rotate(myCamera.transform.up, -Mathf.Deg2Rad * x * rotateSpeed, Space.World);*/
         obj.transform.position = objectViewer.transform.position;
-        //obj.transform.rotation = objectViewer.transform.rotation;
-        obj.transform.rotation = ovAngle * obAngle;
+        //obj.transform.rotation = obAngle * ovAngle;
     }
     
     public void OnMoveEvent(InputAction.CallbackContext value)
