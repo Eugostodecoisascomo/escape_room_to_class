@@ -287,14 +287,22 @@ public class PlayerInteractions : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Corda")
+        if (other.gameObject.)
         {
-            if(toInteract.item.canClimb != null)
+            if (toInteract.item.canClimb != null)
             {
                 toInteract.item.canClimb = true;
                 currentInteractable = toInteract;
             }
         }
+        //if(other.tag == "Corda")
+        //{
+        //    if(toInteract.item.canClimb != null)
+        //    {
+        //        toInteract.item.canClimb = true;
+        //        currentInteractable = toInteract;
+        //    }
+        //}
     }
 
     void OnTriggerExit(Collider other)
