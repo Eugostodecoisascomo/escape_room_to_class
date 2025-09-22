@@ -12,7 +12,7 @@ public class WakeRBTwo : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     private InputAction clickAction;
     float ck;
-    private InteractableObject interactableObject;
+    [SerializeField]private InteractableObject interactableObject;
 
     // Start is called before the first frame update
     void Awake()
